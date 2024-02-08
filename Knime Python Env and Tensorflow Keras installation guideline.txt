@@ -1,0 +1,106 @@
+Python - Knime
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+UPDATE PYTHON AND ANACONDA.
+Aplicando los sgtes pasos actualizamos no solo Anaconda sino tambien la base de Python que utiliza Anaconda.
+Installation Guide:
+01. Launch Anaconda PowerShell Prompt
+	01.01 You can use 3 methods: 
+		01.01.01 Launch Anaconda Powershell Prompt | Anaconda Environment.
+		01.01.02 Open anaconda Env, check for Update Button on the top of the page, click "Update".
+		01.01.03 Windows Browser/Launch Anaconda Powershell Prompt.
+			01.01.03.01 conda update --all
+			01.01.03.02 Enter python into the prompt and click enter on your keyboard.
+			01.01.03.03 import pkg_resources
+						from subprocess import call
+			01.01.03.04 packages = [dist.project_name for dist in pkg_resources.working_set]
+						call("pip install --upgrade --user " + ' '.join(packages), shell=True)
+		01.01.04 Type: conda info ## to valifdate Conda general overview
+https://organicweb.com.au/general/update-python-anaconda-instructions/
+
+Alternatively, you can also update Anaconda using Miniconda_Prompt as follows:
+01. Open Miniconda_Prompt as administrator,
+02. Apply the following command: conda update -n base -c defaults conda
+https://www.logicalfeed.com/posts/1224/install-tensorflow-keras-and-theano-using-anaconda-for-deep-learning
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+INSTALL / UNINSTALL PYTHON PACKAGES USING pip commands (Anaconda Powershell / Jupyter Notebook)
+01. Installation_option_01: pip install tensorflow (this one install the latest package version)
+02. Installation_option_02: pip install tensorflow==2.11.0 (on the contrary this present one installs an specific old package version)
+03. Uninstall: pip uninstall tensorflow
+
+CONSULT PYTHON PACKAGES USING pip. (UPGRADE / DOWNGRADE)
+01. Launch Anaconda Env / Powershell Prompt / Jupyter / Spyder.
+02. Apply the following pip instructions: 
+	02.01. pip list -o (This pip instruction displays the old version and the last version regarding an specific package)
+	02.01. alternatively, we can also apply: pip show <package_name> (e.g.: pip show tensorflow). Displays package general info.
+	02.02. pip install --upgrade <package_name>==0.12.2 or pip install <package_name>==2.0.1
+	https://code.luasoftware.com/tutorials/python/python-pip-downgrade-package/
+Note: pip list -o allow us to compare and validate which version is installed vs the one utilized for Knime/File/Preferences/Knime/Conda
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+CONSULT ANACONDA VERSION.
+01. Launch Anaconda PowerShell Prompt
+02. Run the command: conda list. If Anaconda is installed and working, this will display a list of installed packages and their versions.
+	https://docs.anaconda.com/anaconda/install/verify-install/	
+Note: From this point you are able to compare and validate which version is installed vs Knime/File/Preferences/Knime/Conda
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+CONSULT PYTHON VERSION.
+01. Launch Jupyter Notebook or Spyder, etc
+02. from platform import python_version
+	print(python_version())
+https://docs.jupyter.org/en/latest/use/upgrade-notebook.html
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+SPYDER
+Launch Anaconda Powershell, then:
+
+conda update -n base conda 				## Actualiza conda y todas las librerias instaladas.
+conda update anaconda
+conda list
+pip show <package_name>					## displays gral info regarding a library installed
+pip list -o								## displays all libraries installed in the enviroment
+conda activate <env_name>
+conda install spyder
+pip install -U spyder					## actualizar spyder
+spyder                                 	## run spyder
+<path-to-spark-bin>/spark-submit --version
+conda install spyder=5.3.3				## install an specific library_version
+pip install --upgrade <package_name>==0.12.2 or pip install <package_name>==2.0.1              ## install an specific library_version
+python -m pip install --upgrade pip    	##ejecutar cuando existen issues de compilacion con el comando pip
+
+
+Notes:
+Open Spyder/Help/ if you want to check the spyder version in the GUI.
+Associated Video Tutorial: https://www.bing.com/videos/search?q=upgrade+python+in+jupyter&view=detail&mid=074D670927CB31E5923E074D670927CB31E5923E&FORM=VIRE
+Index: C:\Users\Asus VivoBook\Dropbox\My PC (DESKTOP-GN5CQHE)\Desktop\Documentos\The Vault\Python
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+KNIME {CONDA ENV} {PYTHON LABS EXTENSION}
+Installation Guide:
+01. Anaconda Prompt:
+	The following youtube video explains how to install Tensorflow and Keras
+	https://www.youtube.com/watch?v=pj8_ASKusDk
+02. Anaconda Navigator(GUI)
+	Select the Environment  the library you need to install.python -version
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+TENSORFLOW AND KERAS.
+Installation Guide:
+01. Anaconda Prompt:
+	The following youtube video explains how to install Tensorflow and Keras
+	https://www.youtube.com/watch?v=pj8_ASKusDk
+02. Anaconda Navigator(GUI)
+	Look up the target Environment, then select the library you need to install.python -version
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ACTIVATE PYTHON ENVIRONMENT
+Instructions:
+01. Go to Windows/Search and find Miniconda_Prompt 
+	type: conda activate DeepLearningEnv ###DeepLearningEnv is the Environment that I have created in Knime for DeepLearning purposes.
+02. Follow the instructions depicted in the following youtube_video_tutorial: https://www.youtube.com/watch?v=pj8_ASKusDk
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+CONDA-FORGE | MINIFORGE | MAMBAFORGE
+Installation Guide:
+01. Anaconda Prompt(Administrator Mode):
+	conda install mamba -n base -c conda-forge
+02. type: mamba info ##consult mamba gral info
+Resources: 
+https://medium.com/@mlxl/knime-and-python-setting-up-and-managing-conda-environments-2ac217792539
+https://www.rho-signal-effective-analytics.com/modules/pre-course/miniconda-installation/
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
